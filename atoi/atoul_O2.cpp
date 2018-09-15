@@ -3,9 +3,9 @@
 
 void enforce(bool);
 
-unsigned long atoul_O1(const char * begin, const char * end)
+unsigned long atoul_O2(const char * begin, const char * end)
 {
-    static const unsigned long pow10[20] = 
+    static const uint64_t pow10[20] = 
     {
         10000000000000000000UL,
         1000000000000000000UL,
@@ -35,8 +35,9 @@ unsigned long atoul_O1(const char * begin, const char * end)
     auto i = sizeof(pow10) / sizeof(*pow10) - (end - begin);
     for (; begin != end; ++begin)
     {
-        enforce(*begin >= '0' && *begin <= '9');
-        result += pow10[i++] * ('0' - *begin);
+        auto digit = unsigned (*begin) - '0';
+        enforce(digit < 10);
+        result += pow10[i++] * digit;
     }
     return result;
 }
