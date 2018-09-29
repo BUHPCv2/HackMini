@@ -1,5 +1,7 @@
 #include <cstdint>
 
+uint32_t digits10_O1(uint64_t num) __attribute__((__always_inline__));
+
 uint32_t digits10_O1(uint64_t num)
 {
     uint32_t result = 1;

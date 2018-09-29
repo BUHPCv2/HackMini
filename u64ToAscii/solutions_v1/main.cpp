@@ -4,7 +4,6 @@
 #include <cstdint>
 #include <iostream>
 #include "bench_runner.h"
-#include "Benchmark.h"
 
 uint64_t warmup_cache(const uint64_t *, const std::vector<uint64_t> &);
 
